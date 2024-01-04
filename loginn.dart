@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loginpage_proj/animatio.dart';
+import 'package:loginpage_proj/animatio2.dart';
 import 'package:loginpage_proj/snimation_component.dart';
 
 class MyWidget extends StatefulWidget {
@@ -174,6 +175,10 @@ class _MyWidgetState extends State<MyWidget> {
                             String uemal = emaltext.text.toString();
                             String upas = pastxt.text;
                             print('$uemal + $upas');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const logined()));
                           },
                           child: Text('Login')),
                     ),
@@ -187,6 +192,8 @@ class _MyWidgetState extends State<MyWidget> {
     );
   }
 }
+
+String uemal2 = emaltext.text.toString();
 
 var emaltext = TextEditingController();
 var pastxt = TextEditingController();
@@ -354,8 +361,11 @@ Widget Lgin = Center(
                       String uemal = emaltext.text.toString();
                       String upas = pastxt.text;
                       print('$uemal + $upas');
+
+// Navigator.push( context,
+//     MaterialPageRoute(builder: (context) => const logined());
                     },
-                    child: Text('Login')),
+                    child: Text('Loginn')),
               ),
             ],
           )),
@@ -366,3 +376,33 @@ Widget Lgin = Center(
 );
 
 Widget lginup = Center();
+
+class logined extends StatefulWidget {
+  const logined({super.key});
+
+  @override
+  State<logined> createState() => _loginedState();
+}
+
+class _loginedState extends State<logined> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AnimationComponent2(),
+            Center(
+              child: Text(
+                ' Logined Successfully!',
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
